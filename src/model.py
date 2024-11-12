@@ -140,7 +140,7 @@ class SIGGRAPHGenerator(nn.Module):
         input_B = torch.Tensor(input_B)[None, :, :, :]
         mask_B = torch.Tensor(mask_B)[None, :, :, :]
         mask_B = mask_B - maskcent
-        
+
         # input_A = torch.Tensor(input_A).cuda()[None, :, :, :]
         # input_B = torch.Tensor(input_B).cuda()[None, :, :, :]
         # mask_B = torch.Tensor(mask_B).cuda()[None, :, :, :]
