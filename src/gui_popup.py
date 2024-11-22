@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, colorchooser
-from gui_util import get_mean_color, select_coordinate
+from util import get_mean_color, select_coordinate
 
 
 class PopupWindow:

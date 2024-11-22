@@ -12,7 +12,7 @@ def select_coordinate(app, x, y, p, selected_color):
     selected_color_lab = rgb2lab(np.array([[selected_color_rgb]], dtype=np.uint8) / 255.0)[0, 0, 1:]
     a_channel, b_channel = selected_color_lab
 
-    x1, y1, x2, y2 = get_surrounding_coords(app, x, y, p)
+    x1, y1, x2, y2 = get_surrounding_coords(x, y, p, app.frame_size)
 
     app.user_input[0][0, y1:y2, x1:x2] = a_channel  
     app.user_input[0][1, y1:y2, x1:x2] = b_channel
@@ -21,16 +21,16 @@ def select_coordinate(app, x, y, p, selected_color):
     app.draw_cell(x1, y1, x2, y2, selected_color)
 
 
-def get_surrounding_coords(app, x, y, p):
+def get_surrounding_coords(x, y, p, frame_size):
     left = max(x - p, 0)
-    right = min(x + p + 1, app.frame_size)
+    right = min(x + p + 1, frame_size)
     top = max(y - p, 0)
-    bottom = min(y + p + 1, app.frame_size)
+    bottom = min(y + p + 1, frame_size)
     return left, top, right, bottom
 
 
 def get_mean_color(app, x, y, p):
-    left, top, right, bottom = get_surrounding_coords(app, x, y, p)
+    left, top, right, bottom = get_surrounding_coords(x, y, p, app.frame_size)
     region = app.np_image[top:bottom, left:right]
     mean_color = region.mean(axis=(0, 1)).astype(int)
 

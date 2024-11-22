@@ -5,7 +5,7 @@ import colorize_image as CI
 import numpy as np
 import threading
 from gui_popup import PopupWindow
-from gui_util import select_coordinate_no_color
+from util import select_coordinate_no_color
 from sampling_options import SamplingOption, get_sampling_option
 from datetime import datetime
 
@@ -13,7 +13,7 @@ GRAYSCALE = "grayscale"
 AI_COLORS = "ai_colors"
 ACTUAL_COLORS = "actual_colors"
 
-MODEL = "caffemodel"
+MODEL = "best_model"
 FRAME_SIZE = 512
 DEFAULT_P = 3
 DEFAULT_SAMPLING_AMOUNT = 20
