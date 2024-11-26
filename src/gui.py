@@ -13,8 +13,8 @@ GRAYSCALE = "grayscale"
 AI_COLORS = "ai_colors"
 ACTUAL_COLORS = "actual_colors"
 
-MODEL = "best_model"
-FRAME_SIZE = 512
+MODEL = "training_2024-11-22_14_12_01.851824"
+FRAME_SIZE = 64
 DEFAULT_P = 3
 DEFAULT_SAMPLING_AMOUNT = 20
 

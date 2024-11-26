@@ -204,11 +204,12 @@ class ColorizeImageTorch(ColorizeImageBase):
     # ***** Net preparation *****
     def prep_net(self, gpu_id=None, path='', dist=False):
         import torch
-        import model
+        import ml.model as model
         print('path = %s' % path)
         print('Model set! dist mode? ', dist)
         self.net = model.SIGGRAPHGenerator(dist=dist)
-        state_dict = torch.load(path)
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        state_dict = torch.load(path, map_location=device)
         if hasattr(state_dict, '_metadata'):
             del state_dict._metadata
 
