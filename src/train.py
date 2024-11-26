@@ -159,8 +159,6 @@ def main():
     criterion = nn.SmoothL1Loss(beta=1.0)
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
-
     with open("output/" + output_file + ".txt", 'a+') as f:
         f.write(output_string + '\n\nTest results:')
 
@@ -195,7 +193,7 @@ def main():
 
     test_loader = DataLoader(ConcatDataset([test_dataset_train, test_dataset_val]), batch_size=batch_size, shuffle=False)
 
-    model.load_state_dict(torch.load(f"models/caffemodel.pth", map_location=device))
+    model.load_state_dict(torch.load(f"models/{output_file}.pth", map_location=device))
     test(model, device, test_loader, criterion, output_file)
 
     print("Testing complete!")
