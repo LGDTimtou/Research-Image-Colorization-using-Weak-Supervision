@@ -67,7 +67,7 @@ def epoch_loop(model: SIGGRAPHGenerator, device, dataloader, criterion, user_inp
 
         epoch_loss += loss.item()
 
-    return total_ciede / len(dataloader) if option == 1 else epoch_loss / len(dataloader)
+    return epoch_loss / len(dataloader), total_ciede / len(dataloader) if option == 1 else epoch_loss / len(dataloader)
 
 
 def simulate_user_inputs(ab_image, user_input):
@@ -124,9 +124,9 @@ def test(model: SIGGRAPHGenerator, device, dataloader, criterion, output_file):
                     "n": n,
                     "p": p
                 }
-                ciede2000 = epoch_loop(model, device, dataloader, criterion, user_input_params, option=1)
+                regular_loss, ciede2000 = epoch_loop(model, device, dataloader, criterion, user_input_params, option=1)
                 with open("output/" + output_file + ".txt", 'a+') as f:
-                    f.write(f" - distribution: {distribution}\n - n: {n}\n - p: {p}\n - average ciede loss: {ciede2000}\n-------------------------------------------\n")
+                    f.write(f" - distribution: {distribution}\n - n: {n}\n - p: {p}\n - average regular loss: {regular_loss}\n - average ciede loss: {ciede2000}\n-------------------------------------------\n")
 
 
 def main():
