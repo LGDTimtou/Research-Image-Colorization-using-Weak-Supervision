@@ -1,0 +1,10 @@
+Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 2
+
+Test results:

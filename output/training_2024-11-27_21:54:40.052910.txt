@@ -1,0 +1,267 @@
+Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 2
+
+Test results:Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 2
+
+Test results:Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 2
+
+Test results: - distribution: SamplingOption.GAUSSIAN
+ - n: 1
+ - p: 1
+ - average regular loss: 7.275742637229136
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 1
+ - p: 2
+ - average regular loss: 7.101238801541932
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 1
+ - p: 3
+ - average regular loss: 7.016806613858389
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 1
+ - p: 4
+ - average regular loss: 6.947395225697884
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 1
+ - p: 5
+ - average regular loss: 6.875095078370451
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 1
+ - average regular loss: 6.012538443886295
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 2
+ - average regular loss: 5.784404133270919
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 3
+ - average regular loss: 5.720718441828907
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 4
+ - average regular loss: 5.6945065422103625
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 5
+ - average regular loss: 5.726025695163481
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 1
+ - average regular loss: 5.437729462803406
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 2
+ - average regular loss: 5.177585092535451
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 3
+ - average regular loss: 5.0879125065905955
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 4
+ - average regular loss: 5.164310883792886
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 5
+ - average regular loss: 5.216834232744567
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 1
+ - average regular loss: 4.700892511017282
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 2
+ - average regular loss: 4.439993306674365
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 3
+ - average regular loss: 4.399428225644733
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 4
+ - average regular loss: 4.46426534624259
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 5
+ - average regular loss: 4.591565022605131
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 1
+ - average regular loss: 4.322536508906143
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 2
+ - average regular loss: 4.038627920401125
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 3
+ - average regular loss: 4.023815453479284
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 4
+ - average regular loss: 4.128376748795157
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 5
+ - average regular loss: 4.275081339201097
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 1
+ - average regular loss: 4.058777452368725
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 2
+ - average regular loss: 3.7624235739286873
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 3
+ - average regular loss: 3.7781314960812042
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 4
+ - average regular loss: 3.9240760655277955
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 20
+ - p: 5
+ - average regular loss: 4.091813502562075
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 30
+ - p: 1
+ - average regular loss: 3.7151718944809033
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 30
+ - p: 2
+ - average regular loss: 3.4326818105998074
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 30
+ - p: 3
+ - average regular loss: 3.478190552078739
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 30
+ - p: 4
+ - average regular loss: 3.656665133405699
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 30
+ - p: 5
+ - average regular loss: 3.8670919456459174
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.POISSON
+ - n: 1
+ - p: 1
+ - average regular loss: 7.085963669141893
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.POISSON
+ - n: 1
+ - p: 2
+ - average regular loss: 6.894854810755691
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.POISSON
+ - n: 1
+ - p: 3
+ - average regular loss: 6.834343381030463
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.POISSON
+ - n: 1
+ - p: 4
+ - average regular loss: 6.75492570053137
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.POISSON
+ - n: 1
+ - p: 5
+ - average regular loss: 6.744622431393171
+ - average ciede loss: 0.0
+-------------------------------------------

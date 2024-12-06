@@ -18,9 +18,9 @@ def patch_asscalar(a):
 
 setattr(numpy, "asscalar", patch_asscalar)
 
-debug = True
+debug = False
 
-DATA_FOLDER = 'data/' if debug else '/data/gent/465/vsc46581/ml'
+DATA_FOLDER = 'data/' if debug else '/data/gent/465/vsc46581/ml/'
 
 
 def epoch_loop(model: SIGGRAPHGenerator, device, dataloader, criterion, user_input, optimizer=None, option=0):
@@ -58,8 +58,8 @@ def epoch_loop(model: SIGGRAPHGenerator, device, dataloader, criterion, user_inp
         output_ab = model(img_l - 50, input_ab, input_mask)
         loss = criterion(output_ab, img_ab)
 
-        if option == 1:
-            total_ciede += calculate_ciede2000(img_l, img_ab, output_ab)
+        #if option == 1:
+        #    total_ciede += calculate_ciede2000(img_l, img_ab, output_ab)
 
         if option == 0:
             loss.backward()
@@ -67,7 +67,8 @@ def epoch_loop(model: SIGGRAPHGenerator, device, dataloader, criterion, user_inp
 
         epoch_loss += loss.item()
 
-    return epoch_loss / len(dataloader), total_ciede / len(dataloader) if option == 1 else epoch_loss / len(dataloader)
+
+    return (epoch_loss / len(dataloader), total_ciede / len(dataloader)) if option == 1 else epoch_loss / len(dataloader)
 
 
 def simulate_user_inputs(ab_image, user_input):
@@ -113,8 +114,8 @@ def validate(model: SIGGRAPHGenerator, device, dataloader, criterion, user_input
 def test(model: SIGGRAPHGenerator, device, dataloader, criterion, output_file):
     model.eval()
     distributions = [option for option in SamplingOption]
-    ns = [1, 3, 5, 10, 15, 20, 30]
-    ps = [1, 2, 3, 4, 5]
+    ns = [3, 5, 10, 15, 20]
+    ps = [2, 3, 4]
 
     for distribution in distributions:
         for n in ns:
@@ -136,8 +137,8 @@ def main():
     num_epochs = 20
     learning_rate = 0.001
 
-    distribution = SamplingOption.GAUSSIAN
-    n = 20
+    distribution = SamplingOption.GRID
+    n = 10
     p = 2
 
     user_input_params = {
@@ -147,20 +148,21 @@ def main():
     }
 
     output_file = f"training_{str(datetime.now())}".replace(" ", "_")
-    output_string = f"Training on {device}\nbatch size: {batch_size}\n#epochs: {num_epochs}\nlearning rate: {learning_rate}\nuser input simulation variables:\n - distribution: {str(distribution)}\n - n: {n}\n - p: {p}"
+    output_string = f"Training on {device}\nbatch size: {batch_size}\n#epochs: {num_epochs}\nlearning rate: {learning_rate}\nuser input simulation variables:\n - distribution: {str(distribution)}\n - n: {n}\n - p: {p}\n"
     print(output_string)
+    with open("output/" + output_file + ".txt", 'a+') as f:
+        f.write(output_string)
 
     transform = transforms.Compose([
         transforms.Resize((64, 64)),
-        transforms.ToTensor()
+        transforms.ToTensor(),
+        transforms.RandomHorizontalFlip(),
     ])
 
     model = SIGGRAPHGenerator().to(device)
     criterion = nn.SmoothL1Loss(beta=1.0)
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-    with open("output/" + output_file + ".txt", 'a+') as f:
-        f.write(output_string + '\n\nTest results:')
 
 
     # Training
@@ -178,7 +180,11 @@ def main():
         train_loss = train(model, device, train_loader, criterion, user_input_params, optimizer)
         val_loss = validate(model, device, val_loader, criterion, user_input_params)
 
-        print(f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}")
+        epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}\n"
+        with open("output/" + output_file + ".txt", 'a+') as f:
+            f.write(epoch_output_string)
+
+        print(epoch_output_string)
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
@@ -188,6 +194,10 @@ def main():
     print("Training complete!")
     # Testing
     print("Testing...")
+
+    with open("output/" + output_file + ".txt", 'a+') as f:
+        f.write('\n\nTest results:')
+
     test_dataset_train = datasets.ImageFolder(root=DATA_FOLDER + 'imagenette2-160/train', transform=transform)
     test_dataset_val = datasets.ImageFolder(root=DATA_FOLDER + 'imagenette2-160/val', transform=transform)
 
