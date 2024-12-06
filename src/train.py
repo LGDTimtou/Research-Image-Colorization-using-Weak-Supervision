@@ -147,7 +147,7 @@ def main():
         "p": p
     }
 
-    output_file = f"training_{str(datetime.now())}".replace(" ", "_")
+    output_file = f"training_{str(datetime.now())}".replace(" ", "_").replace(':', "_").replace(".", "_")
     output_string = f"Training on {device}\nbatch size: {batch_size}\n#epochs: {num_epochs}\nlearning rate: {learning_rate}\nuser input simulation variables:\n - distribution: {str(distribution)}\n - n: {n}\n - p: {p}\n"
     print(output_string)
     with open("output/" + output_file + ".txt", 'a+') as f:
