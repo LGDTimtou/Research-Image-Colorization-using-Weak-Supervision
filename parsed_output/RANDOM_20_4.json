@@ -1,0 +1,469 @@
+{
+  "trained_distribution": "RANDOM",
+  "trained_n_value": 20,
+  "trained_p_value": 4,
+  "epoch_data": [
+    [
+      1,
+      4.9586,
+      4.1555
+    ],
+    [
+      2,
+      4.0858,
+      4.2074
+    ],
+    [
+      3,
+      3.8374,
+      3.7986
+    ],
+    [
+      4,
+      3.6839,
+      3.6291
+    ],
+    [
+      5,
+      3.5804,
+      3.4884
+    ],
+    [
+      6,
+      3.495,
+      3.4522
+    ],
+    [
+      7,
+      3.4179,
+      3.3297
+    ],
+    [
+      8,
+      3.3688,
+      3.2889
+    ],
+    [
+      9,
+      3.32,
+      3.3028
+    ],
+    [
+      10,
+      3.2868,
+      3.2148
+    ],
+    [
+      11,
+      3.2422,
+      3.1935
+    ],
+    [
+      12,
+      3.2134,
+      3.2998
+    ],
+    [
+      13,
+      3.1773,
+      3.0989
+    ],
+    [
+      14,
+      3.1466,
+      3.1034
+    ],
+    [
+      15,
+      3.1215,
+      3.0797
+    ],
+    [
+      16,
+      3.1059,
+      3.071
+    ],
+    [
+      17,
+      3.0854,
+      3.0637
+    ],
+    [
+      18,
+      3.0677,
+      3.0562
+    ],
+    [
+      19,
+      3.0582,
+      3.0471
+    ],
+    [
+      20,
+      3.0421,
+      3.032
+    ]
+  ],
+  "test_results": [
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 2,
+      "average_loss": 5.837314606281908
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 3,
+      "average_loss": 5.754001797810375
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 4,
+      "average_loss": 5.727224590670238
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 2,
+      "average_loss": 5.269927991034023
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 3,
+      "average_loss": 5.186952850414631
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 4,
+      "average_loss": 5.200256904155941
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 2,
+      "average_loss": 4.550984370110997
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 3,
+      "average_loss": 4.506618485814916
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 4,
+      "average_loss": 4.547553465019263
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 2,
+      "average_loss": 4.162864077347275
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 3,
+      "average_loss": 4.147143201497973
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 4,
+      "average_loss": 4.235062543702865
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 2,
+      "average_loss": 3.9345735593172133
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 3,
+      "average_loss": 3.927004024066333
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 4,
+      "average_loss": 4.0462770615671015
+    },
+    {
+      "distribution": "POISSON",
+      "n": 3,
+      "p": 2,
+      "average_loss": 5.335636686880435
+    },
+    {
+      "distribution": "POISSON",
+      "n": 3,
+      "p": 3,
+      "average_loss": 5.2631271243948925
+    },
+    {
+      "distribution": "POISSON",
+      "n": 3,
+      "p": 4,
+      "average_loss": 5.234915509713294
+    },
+    {
+      "distribution": "POISSON",
+      "n": 5,
+      "p": 2,
+      "average_loss": 4.701954892825397
+    },
+    {
+      "distribution": "POISSON",
+      "n": 5,
+      "p": 3,
+      "average_loss": 4.613130057910746
+    },
+    {
+      "distribution": "POISSON",
+      "n": 5,
+      "p": 4,
+      "average_loss": 4.609497308162061
+    },
+    {
+      "distribution": "POISSON",
+      "n": 10,
+      "p": 2,
+      "average_loss": 3.948266522981102
+    },
+    {
+      "distribution": "POISSON",
+      "n": 10,
+      "p": 3,
+      "average_loss": 3.8932943102283524
+    },
+    {
+      "distribution": "POISSON",
+      "n": 10,
+      "p": 4,
+      "average_loss": 3.927978117027829
+    },
+    {
+      "distribution": "POISSON",
+      "n": 15,
+      "p": 2,
+      "average_loss": 3.5772882281738134
+    },
+    {
+      "distribution": "POISSON",
+      "n": 15,
+      "p": 3,
+      "average_loss": 3.5393255439749196
+    },
+    {
+      "distribution": "POISSON",
+      "n": 15,
+      "p": 4,
+      "average_loss": 3.6178497494262842
+    },
+    {
+      "distribution": "POISSON",
+      "n": 20,
+      "p": 2,
+      "average_loss": 3.332786020344937
+    },
+    {
+      "distribution": "POISSON",
+      "n": 20,
+      "p": 3,
+      "average_loss": 3.324985611979318
+    },
+    {
+      "distribution": "POISSON",
+      "n": 20,
+      "p": 4,
+      "average_loss": 3.430762362935378
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 3,
+      "p": 2,
+      "average_loss": 5.551907653171294
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 3,
+      "p": 3,
+      "average_loss": 5.476950127071299
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 3,
+      "p": 4,
+      "average_loss": 5.446155079793816
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 5,
+      "p": 2,
+      "average_loss": 4.979542700373757
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 5,
+      "p": 3,
+      "average_loss": 4.881721002674331
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 5,
+      "p": 4,
+      "average_loss": 4.873988704635875
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 10,
+      "p": 2,
+      "average_loss": 4.226300055770146
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 10,
+      "p": 3,
+      "average_loss": 4.1736121575986
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 10,
+      "p": 4,
+      "average_loss": 4.2063884299808585
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 15,
+      "p": 2,
+      "average_loss": 3.8450066283665296
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 15,
+      "p": 3,
+      "average_loss": 3.8268998175646067
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 15,
+      "p": 4,
+      "average_loss": 3.8829193769605177
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 20,
+      "p": 2,
+      "average_loss": 3.6068857626584947
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 20,
+      "p": 3,
+      "average_loss": 3.598734467581519
+    },
+    {
+      "distribution": "RANDOM",
+      "n": 20,
+      "p": 4,
+      "average_loss": 3.7047843597384795
+    },
+    {
+      "distribution": "GRID",
+      "n": 3,
+      "p": 2,
+      "average_loss": 7.231774052458333
+    },
+    {
+      "distribution": "GRID",
+      "n": 3,
+      "p": 3,
+      "average_loss": 7.059623317103966
+    },
+    {
+      "distribution": "GRID",
+      "n": 3,
+      "p": 4,
+      "average_loss": 6.98408217817047
+    },
+    {
+      "distribution": "GRID",
+      "n": 5,
+      "p": 2,
+      "average_loss": 5.9283029942068675
+    },
+    {
+      "distribution": "GRID",
+      "n": 5,
+      "p": 3,
+      "average_loss": 5.636932709905583
+    },
+    {
+      "distribution": "GRID",
+      "n": 5,
+      "p": 4,
+      "average_loss": 5.512395043930746
+    },
+    {
+      "distribution": "GRID",
+      "n": 10,
+      "p": 2,
+      "average_loss": 4.5690826362527925
+    },
+    {
+      "distribution": "GRID",
+      "n": 10,
+      "p": 3,
+      "average_loss": 4.36339197238476
+    },
+    {
+      "distribution": "GRID",
+      "n": 10,
+      "p": 4,
+      "average_loss": 4.273937038703864
+    },
+    {
+      "distribution": "GRID",
+      "n": 15,
+      "p": 2,
+      "average_loss": 4.5715883654455585
+    },
+    {
+      "distribution": "GRID",
+      "n": 15,
+      "p": 3,
+      "average_loss": 4.3672044043893745
+    },
+    {
+      "distribution": "GRID",
+      "n": 15,
+      "p": 4,
+      "average_loss": 4.273365794616554
+    },
+    {
+      "distribution": "GRID",
+      "n": 20,
+      "p": 2,
+      "average_loss": 3.84170820832537
+    },
+    {
+      "distribution": "GRID",
+      "n": 20,
+      "p": 3,
+      "average_loss": 3.7096760836307645
+    },
+    {
+      "distribution": "GRID",
+      "n": 20,
+      "p": 4,
+      "average_loss": 3.6790709324839006
+    }
+  ]
+}
