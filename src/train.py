@@ -137,9 +137,9 @@ def main():
     num_epochs = 20
     learning_rate = 0.001
 
-    distribution = SamplingOption.GRID
+    distribution = SamplingOption.GAUSSIAN
     n = 10
-    p = 2
+    p = 3
 
     user_input_params = {
         "distribution": distribution,
