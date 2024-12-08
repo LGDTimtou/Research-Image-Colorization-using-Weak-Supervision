@@ -1,0 +1,248 @@
+{
+  "trained_distribution": "GAUSSIAN",
+  "trained_n_value": 1,
+  "trained_p_value": 5,
+  "epoch_data": [],
+  "test_results": [
+    {
+      "distribution": "GAUSSIAN",
+      "n": 1,
+      "p": 1,
+      "average_loss": 7.275742637229136
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 1,
+      "p": 2,
+      "average_loss": 7.101238801541932
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 1,
+      "p": 3,
+      "average_loss": 7.016806613858389
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 1,
+      "p": 4,
+      "average_loss": 6.947395225697884
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 1,
+      "p": 5,
+      "average_loss": 6.875095078370451
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 1,
+      "average_loss": 6.012538443886295
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 2,
+      "average_loss": 5.784404133270919
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 3,
+      "average_loss": 5.720718441828907
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 4,
+      "average_loss": 5.6945065422103625
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 3,
+      "p": 5,
+      "average_loss": 5.726025695163481
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 1,
+      "average_loss": 5.437729462803406
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 2,
+      "average_loss": 5.177585092535451
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 3,
+      "average_loss": 5.0879125065905955
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 4,
+      "average_loss": 5.164310883792886
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 5,
+      "p": 5,
+      "average_loss": 5.216834232744567
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 1,
+      "average_loss": 4.700892511017282
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 2,
+      "average_loss": 4.439993306674365
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 3,
+      "average_loss": 4.399428225644733
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 4,
+      "average_loss": 4.46426534624259
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 10,
+      "p": 5,
+      "average_loss": 4.591565022605131
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 1,
+      "average_loss": 4.322536508906143
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 2,
+      "average_loss": 4.038627920401125
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 3,
+      "average_loss": 4.023815453479284
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 4,
+      "average_loss": 4.128376748795157
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 15,
+      "p": 5,
+      "average_loss": 4.275081339201097
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 1,
+      "average_loss": 4.058777452368725
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 2,
+      "average_loss": 3.7624235739286873
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 3,
+      "average_loss": 3.7781314960812042
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 4,
+      "average_loss": 3.9240760655277955
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 20,
+      "p": 5,
+      "average_loss": 4.091813502562075
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 30,
+      "p": 1,
+      "average_loss": 3.7151718944809033
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 30,
+      "p": 2,
+      "average_loss": 3.4326818105998074
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 30,
+      "p": 3,
+      "average_loss": 3.478190552078739
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 30,
+      "p": 4,
+      "average_loss": 3.656665133405699
+    },
+    {
+      "distribution": "GAUSSIAN",
+      "n": 30,
+      "p": 5,
+      "average_loss": 3.8670919456459174
+    },
+    {
+      "distribution": "POISSON",
+      "n": 1,
+      "p": 1,
+      "average_loss": 7.085963669141893
+    },
+    {
+      "distribution": "POISSON",
+      "n": 1,
+      "p": 2,
+      "average_loss": 6.894854810755691
+    },
+    {
+      "distribution": "POISSON",
+      "n": 1,
+      "p": 3,
+      "average_loss": 6.834343381030463
+    },
+    {
+      "distribution": "POISSON",
+      "n": 1,
+      "p": 4,
+      "average_loss": 6.75492570053137
+    },
+    {
+      "distribution": "POISSON",
+      "n": 1,
+      "p": 5,
+      "average_loss": 6.744622431393171
+    }
+  ]
+}

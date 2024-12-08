@@ -6,8 +6,8 @@ import os
 def parse_output(data):
     # Extract the distribution, n, and p values
     trained_distribution = re.search(r"distribution: (.+)", data).group(1).strip().replace('SamplingOption.', "")
-    n = int(re.search(r"n: (\d+)", data).group(1))
-    p = int(re.search(r"p: (\d+)", data).group(1))
+    trained_n = int(re.search(r"n: (\d+)", data).group(1))
+    trained_p = int(re.search(r"p: (\d+)", data).group(1))
 
     # Extract train and validation losses
     epoch_data = []
@@ -42,7 +42,7 @@ def parse_output(data):
         "test_results": test_results
     }
 
-    filename = f"{trained_distribution}_{n}_{p}"
+    filename = f"{trained_distribution}_{trained_n}_{trained_p}"
 
     return output, filename
 
