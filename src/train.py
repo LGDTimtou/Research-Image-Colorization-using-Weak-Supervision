@@ -139,7 +139,7 @@ def main():
 
     distribution = SamplingOption.GAUSSIAN
     n = 10
-    p = 3
+    p = 1
 
     user_input_params = {
         "distribution": distribution,
