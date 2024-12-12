@@ -36,8 +36,8 @@ def parse_output(data):
 
     output = {
         "trained_distribution": trained_distribution,
-        "trained_n_value": n,
-        "trained_p_value": p,
+        "trained_n_value": trained_n,
+        "trained_p_value": trained_p,
         "epoch_data": epoch_data,
         "test_results": test_results
     }
@@ -46,12 +46,7 @@ def parse_output(data):
 
     return output, filename
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        sys.exit(1)
-
-    file_path = sys.argv[1]
-
+def run(file_path):
     try:
         with open(file_path, 'r') as file:
             data = file.read()
@@ -64,3 +59,11 @@ if __name__ == "__main__":
         print(f"Error: File not found at {file_path}")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    directory_path = "output"
+    for filename in os.listdir(directory_path):
+        file_path = os.path.join(directory_path, filename)
+        if os.path.isfile(file_path):
+            run(file_path)

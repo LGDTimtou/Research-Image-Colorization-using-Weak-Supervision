@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader, ConcatDataset, random_split
+from torch.utils.data import DataLoader, random_split
 from torchvision import datasets, transforms
 from model import SIGGRAPHGenerator
 from skimage.color import rgb2lab
@@ -10,8 +10,7 @@ import numpy
 from sampling_options import SamplingOption
 from util import get_surrounding_coords
 from datetime import datetime
-from colormath.color_objects import LabColor
-from colormath.color_diff import delta_e_cie2000
+
 
 def patch_asscalar(a):
     return a.item()
@@ -58,9 +57,6 @@ def epoch_loop(model: SIGGRAPHGenerator, device, dataloader, criterion, user_inp
         output_ab = model(img_l - 50, input_ab, input_mask)
         loss = criterion(output_ab, img_ab)
 
-        #if option == 1:
-        #    total_ciede += calculate_ciede2000(img_l, img_ab, output_ab)
-
         if option == 0:
             loss.backward()
             optimizer.step()
@@ -88,19 +84,6 @@ def simulate_user_inputs(ab_image, user_input):
 
     return input_ab, input_mask
 
-def calculate_ciede2000(img_l, img1_ab, img2_ab):
-    batch_size, h, w, _ = img1_ab.shape
-    total_diff = 0.0
-
-    for i in range(batch_size):
-        for j in range(h):
-            for k in range(w):
-                color1 = LabColor(lab_l=50.0, lab_a=img1_ab[i, j, k, 0], lab_b=img1_ab[i, j, k, 1])
-                color2 = LabColor(lab_l=50.0, lab_a=img2_ab[i, j, k, 0], lab_b=img2_ab[i, j, k, 1])
-                total_diff += delta_e_cie2000(color1, color2)
-
-    return total_diff / (h * w)
-
 
 def train(model: SIGGRAPHGenerator, device, dataloader, criterion, user_input, optimizer):
     model.train()
@@ -111,35 +94,13 @@ def validate(model: SIGGRAPHGenerator, device, dataloader, criterion, user_input
     model.eval()
     return epoch_loop(model, device, dataloader, criterion, user_input, option=-1)
 
-def test(model: SIGGRAPHGenerator, device, dataloader, criterion, output_file):
-    model.eval()
-    distributions = [option for option in SamplingOption]
-    ns = [3, 5, 10, 15, 20]
-    ps = [2, 3, 4]
 
-    for distribution in distributions:
-        for n in ns:
-            for p in ps:
-                user_input_params = {
-                    "distribution": distribution,
-                    "n": n,
-                    "p": p
-                }
-                regular_loss, ciede2000 = epoch_loop(model, device, dataloader, criterion, user_input_params, option=1)
-                with open("output/" + output_file + ".txt", 'a+') as f:
-                    f.write(f" - distribution: {distribution}\n - n: {n}\n - p: {p}\n - average regular loss: {regular_loss}\n - average ciede loss: {ciede2000}\n-------------------------------------------\n")
-
-
-def main():
+def main(distribution, n, p):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # Define parameters
     batch_size = 32 
     num_epochs = 20
     learning_rate = 0.001
-
-    distribution = SamplingOption.GAUSSIAN
-    n = 10
-    p = 1
 
     user_input_params = {
         "distribution": distribution,
@@ -168,7 +129,7 @@ def main():
     # Training
     train_dataset = datasets.CIFAR10(root=DATA_FOLDER, train=True, download=True, transform=transform)
 
-    train_size = int(0.8 * len(train_dataset))
+    train_size = int(0.95 * len(train_dataset))
     val_size = len(train_dataset) - train_size
     train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size])
 
@@ -178,35 +139,38 @@ def main():
     best_val_loss = float('inf')
     for epoch in trange(num_epochs):
         train_loss = train(model, device, train_loader, criterion, user_input_params, optimizer)
-        val_loss = validate(model, device, val_loader, criterion, user_input_params)
 
-        epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}\n"
+        distributions = [option for option in SamplingOption]
+        ns = [3, 5, 10, 15, 20]
+        ps = [2, 3, 4]
+        val_losses = []
+        for distribution in distributions:
+            for n in ns:
+                for p in ps:
+                    val_input_params = {
+                        "distribution": distribution,
+                        "n": n,
+                        "p": p
+                    }
+                    val_loss = validate(model, device, val_loader, criterion, val_input_params)
+                    val_losses.append(val_input_params, val_loss)
+
+        epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Losses: {val_losses}\n"
         with open("output/" + output_file + ".txt", 'a+') as f:
             f.write(epoch_output_string)
 
         print(epoch_output_string)
 
-        if val_loss < best_val_loss:
+        if numpy.mean(val_losses) < best_val_loss:
             best_val_loss = val_loss
             torch.save(model.state_dict(), f"models/{output_file}.pth")
             print(f"Validation loss improved. Saving model at epoch {epoch + 1}")
 
     print("Training complete!")
-    # Testing
-    print("Testing...")
-
-    with open("output/" + output_file + ".txt", 'a+') as f:
-        f.write('\n\nTest results:')
-
-    test_dataset_train = datasets.ImageFolder(root=DATA_FOLDER + 'imagenette2-160/train', transform=transform)
-    test_dataset_val = datasets.ImageFolder(root=DATA_FOLDER + 'imagenette2-160/val', transform=transform)
-
-    test_loader = DataLoader(ConcatDataset([test_dataset_train, test_dataset_val]), batch_size=batch_size, shuffle=False)
-
-    model.load_state_dict(torch.load(f"models/{output_file}.pth", map_location=device))
-    test(model, device, test_loader, criterion, output_file)
-
-    print("Testing complete!")
 
     
-main()
+if __name__ == '__main__':
+    for distribution in SamplingOption:
+        for n in [5, 10, 15, 20]:
+            for p in [2, 3, 4]:
+                main(distribution, n, p)

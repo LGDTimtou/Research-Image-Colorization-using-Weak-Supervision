@@ -1,7 +1,7 @@
 {
   "trained_distribution": "GAUSSIAN",
-  "trained_n_value": 20,
-  "trained_p_value": 4,
+  "trained_n_value": 10,
+  "trained_p_value": 3,
   "epoch_data": [
     [
       1,

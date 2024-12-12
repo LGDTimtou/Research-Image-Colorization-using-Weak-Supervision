@@ -1,107 +1,107 @@
 {
-  "trained_distribution": "POISSON",
+  "trained_distribution": "GRID",
   "trained_n_value": 10,
-  "trained_p_value": 2,
+  "trained_p_value": 3,
   "epoch_data": [
     [
       1,
-      4.5698,
-      3.833
+      4.8347,
+      3.9442
     ],
     [
       2,
-      3.7445,
-      3.5239
+      4.0466,
+      3.806
     ],
     [
       3,
-      3.4618,
-      3.3959
+      3.7302,
+      3.7919
     ],
     [
       4,
-      3.2873,
-      3.184
+      3.579,
+      3.6216
     ],
     [
       5,
-      3.1829,
-      3.0914
+      3.4865,
+      3.4007
     ],
     [
       6,
-      3.097,
-      3.1519
+      3.4132,
+      3.4084
     ],
     [
       7,
-      3.0278,
-      3.0877
+      3.3459,
+      3.2844
     ],
     [
       8,
-      2.9884,
-      2.9452
+      3.2975,
+      3.2784
     ],
     [
       9,
-      2.9451,
-      2.8892
+      3.2593,
+      3.2189
     ],
     [
       10,
-      2.9082,
-      2.8588
+      3.2186,
+      3.2393
     ],
     [
       11,
-      2.8754,
-      2.8525
+      3.1796,
+      3.3066
     ],
     [
       12,
-      2.8552,
-      2.8701
+      3.1515,
+      3.1677
     ],
     [
       13,
-      2.827,
-      2.8829
+      3.1262,
+      3.1995
     ],
     [
       14,
-      2.8079,
-      2.7926
+      3.1,
+      3.1286
     ],
     [
       15,
-      2.7881,
-      2.811
+      3.0772,
+      3.2793
     ],
     [
       16,
-      2.7778,
-      2.8375
+      3.0469,
+      3.1957
     ],
     [
       17,
-      2.7582,
-      2.7602
+      3.0265,
+      3.1371
     ],
     [
       18,
-      2.7457,
-      2.774
+      3.0001,
+      3.2005
     ],
     [
       19,
-      2.7282,
-      2.8591
+      2.9807,
+      3.1467
     ],
     [
       20,
-      2.7169,
-      2.7611
+      2.9631,
+      3.2164
     ]
   ],
   "test_results": [
@@ -109,361 +109,361 @@
       "distribution": "GAUSSIAN",
       "n": 3,
       "p": 2,
-      "average_loss": 6.010832038301272
+      "average_loss": 7.458692440838688
     },
     {
       "distribution": "GAUSSIAN",
       "n": 3,
       "p": 3,
-      "average_loss": 5.950114050457756
+      "average_loss": 7.201437489798644
     },
     {
       "distribution": "GAUSSIAN",
       "n": 3,
       "p": 4,
-      "average_loss": 6.09217813988005
+      "average_loss": 7.058418067941234
     },
     {
       "distribution": "GAUSSIAN",
       "n": 5,
       "p": 2,
-      "average_loss": 5.399742556642519
+      "average_loss": 6.872104539507045
     },
     {
       "distribution": "GAUSSIAN",
       "n": 5,
       "p": 3,
-      "average_loss": 5.478827284742369
+      "average_loss": 6.588787997821635
     },
     {
       "distribution": "GAUSSIAN",
       "n": 5,
       "p": 4,
-      "average_loss": 5.7345062115880925
+      "average_loss": 6.516005713501523
     },
     {
       "distribution": "GAUSSIAN",
       "n": 10,
       "p": 2,
-      "average_loss": 4.713834746071718
+      "average_loss": 6.044583821922612
     },
     {
       "distribution": "GAUSSIAN",
       "n": 10,
       "p": 3,
-      "average_loss": 4.969144661272909
+      "average_loss": 5.848553304171506
     },
     {
       "distribution": "GAUSSIAN",
       "n": 10,
       "p": 4,
-      "average_loss": 5.313344282864955
+      "average_loss": 5.755622300441623
     },
     {
       "distribution": "GAUSSIAN",
       "n": 15,
       "p": 2,
-      "average_loss": 4.379401542121869
+      "average_loss": 5.5697144176055255
     },
     {
       "distribution": "GAUSSIAN",
       "n": 15,
       "p": 3,
-      "average_loss": 4.755700393053114
+      "average_loss": 5.417585178889636
     },
     {
       "distribution": "GAUSSIAN",
       "n": 15,
       "p": 4,
-      "average_loss": 5.140710811910879
+      "average_loss": 5.440080621646526
     },
     {
       "distribution": "GAUSSIAN",
       "n": 20,
       "p": 2,
-      "average_loss": 4.196227626755015
+      "average_loss": 5.369307236910435
     },
     {
       "distribution": "GAUSSIAN",
       "n": 20,
       "p": 3,
-      "average_loss": 4.652056528731007
+      "average_loss": 5.2302586838851965
     },
     {
       "distribution": "GAUSSIAN",
       "n": 20,
       "p": 4,
-      "average_loss": 5.057477423001019
+      "average_loss": 5.279041894011395
     },
     {
       "distribution": "POISSON",
       "n": 3,
       "p": 2,
-      "average_loss": 5.508723144599532
+      "average_loss": 7.278738088425702
     },
     {
       "distribution": "POISSON",
       "n": 3,
       "p": 3,
-      "average_loss": 5.52217881491759
+      "average_loss": 7.0021599277960656
     },
     {
       "distribution": "POISSON",
       "n": 3,
       "p": 4,
-      "average_loss": 5.7050706031498875
+      "average_loss": 6.768467582211005
     },
     {
       "distribution": "POISSON",
       "n": 5,
       "p": 2,
-      "average_loss": 4.76354996856471
+      "average_loss": 6.369337741401145
     },
     {
       "distribution": "POISSON",
       "n": 5,
       "p": 3,
-      "average_loss": 4.886758614838266
+      "average_loss": 6.050318049929307
     },
     {
       "distribution": "POISSON",
       "n": 5,
       "p": 4,
-      "average_loss": 5.207601655923666
+      "average_loss": 5.846480899323711
     },
     {
       "distribution": "POISSON",
       "n": 10,
       "p": 2,
-      "average_loss": 3.9345857382958713
+      "average_loss": 5.33070009534285
     },
     {
       "distribution": "POISSON",
       "n": 10,
       "p": 3,
-      "average_loss": 4.152068416941422
+      "average_loss": 5.405830196662849
     },
     {
       "distribution": "POISSON",
       "n": 10,
       "p": 4,
-      "average_loss": 4.547763430417865
+      "average_loss": 5.462636425842248
     },
     {
       "distribution": "POISSON",
       "n": 15,
       "p": 2,
-      "average_loss": 3.561768626256319
+      "average_loss": 5.225848281582671
     },
     {
       "distribution": "POISSON",
       "n": 15,
       "p": 3,
-      "average_loss": 3.7945412992008545
+      "average_loss": 6.072074150413203
     },
     {
       "distribution": "POISSON",
       "n": 15,
       "p": 4,
-      "average_loss": 4.232338075137082
+      "average_loss": 6.415082586693593
     },
     {
       "distribution": "POISSON",
       "n": 20,
       "p": 2,
-      "average_loss": 3.318840594735521
+      "average_loss": 5.724438774272764
     },
     {
       "distribution": "POISSON",
       "n": 20,
       "p": 3,
-      "average_loss": 3.616934201882392
+      "average_loss": 6.659540407981964
     },
     {
       "distribution": "POISSON",
       "n": 20,
       "p": 4,
-      "average_loss": 4.116733960433906
+      "average_loss": 7.0369253932433935
     },
     {
       "distribution": "RANDOM",
       "n": 3,
       "p": 2,
-      "average_loss": 5.800436812539658
+      "average_loss": 7.4553902041087
     },
     {
       "distribution": "RANDOM",
       "n": 3,
       "p": 3,
-      "average_loss": 5.780115666423606
+      "average_loss": 7.27759768456434
     },
     {
       "distribution": "RANDOM",
       "n": 3,
       "p": 4,
-      "average_loss": 5.9379113556946095
+      "average_loss": 7.056506254792498
     },
     {
       "distribution": "RANDOM",
       "n": 5,
       "p": 2,
-      "average_loss": 5.1054354209034996
+      "average_loss": 6.796868261118777
     },
     {
       "distribution": "RANDOM",
       "n": 5,
       "p": 3,
-      "average_loss": 5.219274101507692
+      "average_loss": 6.541705792160762
     },
     {
       "distribution": "RANDOM",
       "n": 5,
       "p": 4,
-      "average_loss": 5.5028544092519756
+      "average_loss": 6.358119606118214
     },
     {
       "distribution": "RANDOM",
       "n": 10,
       "p": 2,
-      "average_loss": 4.307269180589189
+      "average_loss": 5.763800678503542
     },
     {
       "distribution": "RANDOM",
       "n": 10,
       "p": 3,
-      "average_loss": 4.626720054337404
+      "average_loss": 5.655955983232484
     },
     {
       "distribution": "RANDOM",
       "n": 10,
       "p": 4,
-      "average_loss": 5.026996372423195
+      "average_loss": 5.732436990396504
     },
     {
       "distribution": "RANDOM",
       "n": 15,
       "p": 2,
-      "average_loss": 3.963532157046698
+      "average_loss": 5.312786398184328
     },
     {
       "distribution": "RANDOM",
       "n": 15,
       "p": 3,
-      "average_loss": 4.384228293821749
+      "average_loss": 5.577811538746363
     },
     {
       "distribution": "RANDOM",
       "n": 15,
       "p": 4,
-      "average_loss": 4.804995022127338
+      "average_loss": 5.472913053553542
     },
     {
       "distribution": "RANDOM",
       "n": 20,
       "p": 2,
-      "average_loss": 3.7669934552153994
+      "average_loss": 5.1008014963464126
     },
     {
       "distribution": "RANDOM",
       "n": 20,
       "p": 3,
-      "average_loss": 4.241988740559125
+      "average_loss": 5.3432675949998005
     },
     {
       "distribution": "RANDOM",
       "n": 20,
       "p": 4,
-      "average_loss": 4.693652683055486
+      "average_loss": 5.597263536760517
     },
     {
       "distribution": "GRID",
       "n": 3,
       "p": 2,
-      "average_loss": 7.626564162443247
+      "average_loss": 8.636603453847844
     },
     {
       "distribution": "GRID",
       "n": 3,
       "p": 3,
-      "average_loss": 7.4654363112119615
+      "average_loss": 8.51742620286054
     },
     {
       "distribution": "GRID",
       "n": 3,
       "p": 4,
-      "average_loss": 7.405285418744873
+      "average_loss": 8.509166531460382
     },
     {
       "distribution": "GRID",
       "n": 5,
       "p": 2,
-      "average_loss": 6.157557830036683
+      "average_loss": 8.04371221310199
     },
     {
       "distribution": "GRID",
       "n": 5,
       "p": 3,
-      "average_loss": 5.872043382011905
+      "average_loss": 7.311699574204219
     },
     {
       "distribution": "GRID",
       "n": 5,
       "p": 4,
-      "average_loss": 5.746199762622041
+      "average_loss": 7.286625934386879
     },
     {
       "distribution": "GRID",
       "n": 10,
       "p": 2,
-      "average_loss": 4.5633647316680035
+      "average_loss": 5.967658344487302
     },
     {
       "distribution": "GRID",
       "n": 10,
       "p": 3,
-      "average_loss": 4.450633231666037
+      "average_loss": 4.475006516053739
     },
     {
       "distribution": "GRID",
       "n": 10,
       "p": 4,
-      "average_loss": 4.441843782233737
+      "average_loss": 4.56580337931831
     },
     {
       "distribution": "GRID",
       "n": 15,
       "p": 2,
-      "average_loss": 4.5638421708473444
+      "average_loss": 5.966500708482146
     },
     {
       "distribution": "GRID",
       "n": 15,
       "p": 3,
-      "average_loss": 4.449802206922545
+      "average_loss": 4.477072856306745
     },
     {
       "distribution": "GRID",
       "n": 15,
       "p": 4,
-      "average_loss": 4.431473155010287
+      "average_loss": 4.589049829219007
     },
     {
       "distribution": "GRID",
       "n": 20,
       "p": 2,
-      "average_loss": 3.7935015079798733
+      "average_loss": 4.96822947590903
     },
     {
       "distribution": "GRID",
       "n": 20,
       "p": 3,
-      "average_loss": 3.7355300560771423
+      "average_loss": 9.555056842813059
     },
     {
       "distribution": "GRID",
       "n": 20,
       "p": 4,
-      "average_loss": 3.917536258413001
+      "average_loss": 14.989389508891504
     }
   ]
 }

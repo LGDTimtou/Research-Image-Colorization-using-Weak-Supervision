@@ -49,6 +49,7 @@ def average_loss_accross_distributions():
             })
 
     df = pd.DataFrame(results)
+    print(df)
     pivot_df = df.pivot_table(index=['n', 'p'], columns='Distribution', values='Average Loss')
 
     pivot_df.plot(kind='bar', figsize=(10, 6))
@@ -123,4 +124,4 @@ def bad_p_showcase():
     plt.tight_layout()
     plt.show()
 
-bad_p_showcase()
+average_loss_accross_distributions()
