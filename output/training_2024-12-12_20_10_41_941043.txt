@@ -1,0 +1,114 @@
+Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 4
+Epoch [1/20], Train Loss: 5.1163, Validation Loss: 4.6322
+Epoch [2/20], Train Loss: 4.3665, Validation Loss: 4.3046
+Epoch [3/20], Train Loss: 4.1554, Validation Loss: 4.1215
+Epoch [4/20], Train Loss: 4.0252, Validation Loss: 3.9519
+Epoch [5/20], Train Loss: 3.9278, Validation Loss: 4.0636
+Epoch [6/20], Train Loss: 3.8253, Validation Loss: 3.7093
+Epoch [7/20], Train Loss: 3.7414, Validation Loss: 3.7196
+Epoch [8/20], Train Loss: 3.6741, Validation Loss: 3.6997
+Epoch [9/20], Train Loss: 3.6197, Validation Loss: 3.6309
+Epoch [10/20], Train Loss: 3.5868, Validation Loss: 3.5315
+Epoch [11/20], Train Loss: 3.5492, Validation Loss: 3.5115
+Epoch [12/20], Train Loss: 3.5126, Validation Loss: 3.4829
+Epoch [13/20], Train Loss: 3.4770, Validation Loss: 3.4643
+Epoch [14/20], Train Loss: 3.4638, Validation Loss: 3.4051
+Epoch [15/20], Train Loss: 3.4313, Validation Loss: 3.3471
+Epoch [16/20], Train Loss: 3.4133, Validation Loss: 3.4582
+Epoch [17/20], Train Loss: 3.3914, Validation Loss: 3.3701
+Epoch [18/20], Train Loss: 3.3701, Validation Loss: 3.4390
+Epoch [19/20], Train Loss: 3.3559, Validation Loss: 3.3332
+Epoch [20/20], Train Loss: 3.3312, Validation Loss: 3.2839
+
+
+Test results: - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 1
+ - average regular loss: 6.336143634768829
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 2
+ - average regular loss: 5.836119100415906
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 3
+ - average regular loss: 5.765000122543736
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 3
+ - p: 4
+ - average regular loss: 5.615521629556551
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 1
+ - average regular loss: 5.929415901976156
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 2
+ - average regular loss: 5.399651847761969
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 3
+ - average regular loss: 5.252539005370584
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 5
+ - p: 4
+ - average regular loss: 5.151248648513757
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 1
+ - average regular loss: 5.3387422197473935
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 2
+ - average regular loss: 4.8131699192210995
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 3
+ - average regular loss: 4.633188486668261
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 10
+ - p: 4
+ - average regular loss: 4.520350259926553
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 1
+ - average regular loss: 5.022711560379065
+ - average ciede loss: 0.0
+-------------------------------------------
+ - distribution: SamplingOption.GAUSSIAN
+ - n: 15
+ - p: 2
+ - average regular loss: 4.449225499123548
+ - average ciede loss: 0.0
+-------------------------------------------

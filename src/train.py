@@ -10,6 +10,8 @@ import numpy
 from sampling_options import SamplingOption
 from util import get_surrounding_coords
 from datetime import datetime
+from torch.utils.data import Subset
+import random
 
 
 def patch_asscalar(a):
@@ -125,9 +127,16 @@ def main(distribution, n, p):
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 
-
     # Training
     train_dataset = datasets.CIFAR10(root=DATA_FOLDER, train=True, download=True, transform=transform)
+
+    dataset_size = len(train_dataset)
+    subset_size = dataset_size // 8
+    indices = list(range(dataset_size))
+    random.shuffle(indices)
+    subset_indices = indices[:subset_size]
+
+    train_dataset = Subset(train_dataset, subset_indices)
 
     train_size = int(0.95 * len(train_dataset))
     val_size = len(train_dataset) - train_size
@@ -141,7 +150,7 @@ def main(distribution, n, p):
         train_loss = train(model, device, train_loader, criterion, user_input_params, optimizer)
 
         distributions = [option for option in SamplingOption]
-        ns = [3, 5, 10, 15, 20]
+        ns = [5, 10, 20]
         ps = [2, 3, 4]
         val_losses = []
         for distribution in distributions:
@@ -153,7 +162,7 @@ def main(distribution, n, p):
                         "p": p
                     }
                     val_loss = validate(model, device, val_loader, criterion, val_input_params)
-                    val_losses.append(val_input_params, val_loss)
+                    val_losses.append((val_input_params, val_loss))
 
         epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Losses: {val_losses}\n"
         with open("output/" + output_file + ".txt", 'a+') as f:
