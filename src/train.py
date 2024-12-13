@@ -130,15 +130,7 @@ def main(distribution, n, p):
     # Training
     train_dataset = datasets.CIFAR10(root=DATA_FOLDER, train=True, download=True, transform=transform)
 
-    dataset_size = len(train_dataset)
-    subset_size = dataset_size // 8
-    indices = list(range(dataset_size))
-    random.shuffle(indices)
-    subset_indices = indices[:subset_size]
-
-    train_dataset = Subset(train_dataset, subset_indices)
-
-    train_size = int(0.95 * len(train_dataset))
+    train_size = int(0.8 * len(train_dataset))
     val_size = len(train_dataset) - train_size
     train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size])
 
@@ -149,20 +141,18 @@ def main(distribution, n, p):
     for epoch in trange(num_epochs):
         train_loss = train(model, device, train_loader, criterion, user_input_params, optimizer)
 
-        distributions = [option for option in SamplingOption]
-        ns = [5, 10, 20]
-        ps = [2, 3, 4]
+        distribution = SamplingOption.RANDOM
+        ns = [3, 5, 10, 15, 20]
+        p = 3
         val_losses = []
-        for distribution in distributions:
-            for n in ns:
-                for p in ps:
-                    val_input_params = {
-                        "distribution": distribution,
-                        "n": n,
-                        "p": p
-                    }
-                    val_loss = validate(model, device, val_loader, criterion, val_input_params)
-                    val_losses.append(val_loss)
+        for n in ns:
+            val_input_params = {
+                "distribution": distribution,
+                "n": n,
+                "p": p
+            }
+            val_loss = validate(model, device, val_loader, criterion, val_input_params)
+            val_losses.append(val_loss)
 
         final_val_loss = numpy.mean(val_losses)
         epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Loss: {final_val_loss:.4f}\n"
@@ -173,17 +163,11 @@ def main(distribution, n, p):
 
         if final_val_loss < best_val_loss:
             best_val_loss = val_loss
-            #torch.save(model.state_dict(), f"models/{output_file}.pth")
-            #print(f"Validation loss improved. Saving model at epoch {epoch + 1}")
+            torch.save(model.state_dict(), f"models/{output_file}.pth")
+            print(f"Validation loss improved. Saving model at epoch {epoch + 1}")
 
     print("Training complete!")
 
     
 if __name__ == '__main__':
-    for distribution in SamplingOption:
-        for n in [5, 10, 15, 20]:
-            for p in [2, 3, 4]:
-                if distribution == SamplingOption.GAUSSIAN or (distribution == SamplingOption.POISSON and (n == 5 or (n == 10 and p == 2))):
-                    continue
-                else:
-                    main(distribution, n, p)
+    main(SamplingOption.RANDOM, 15, 3)
