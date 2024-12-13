@@ -1,0 +1,28 @@
+Training on cuda
+batch size: 32
+#epochs: 20
+learning rate: 0.001
+user input simulation variables:
+ - distribution: SamplingOption.RANDOM
+ - n: 20
+ - p: 3
+Epoch [1/20], Train Loss: 5.8325, Validation Loss: 5.7616
+Epoch [2/20], Train Loss: 4.1037, Validation Loss: 5.2070
+Epoch [3/20], Train Loss: 3.9113, Validation Loss: 5.0890
+Epoch [4/20], Train Loss: 3.7922, Validation Loss: 4.9611
+Epoch [5/20], Train Loss: 3.6791, Validation Loss: 4.6752
+Epoch [6/20], Train Loss: 3.5165, Validation Loss: 4.8361
+Epoch [7/20], Train Loss: 3.4922, Validation Loss: 4.6039
+Epoch [8/20], Train Loss: 3.4795, Validation Loss: 4.3947
+Epoch [9/20], Train Loss: 3.3895, Validation Loss: 4.2350
+Epoch [10/20], Train Loss: 3.2783, Validation Loss: 4.1714
+Epoch [11/20], Train Loss: 3.2352, Validation Loss: 4.2609
+Epoch [12/20], Train Loss: 3.2018, Validation Loss: 4.4886
+Epoch [13/20], Train Loss: 3.1640, Validation Loss: 4.0849
+Epoch [14/20], Train Loss: 3.1100, Validation Loss: 4.0347
+Epoch [15/20], Train Loss: 3.0774, Validation Loss: 4.1799
+Epoch [16/20], Train Loss: 3.0430, Validation Loss: 4.2398
+Epoch [17/20], Train Loss: 3.0325, Validation Loss: 4.0436
+Epoch [18/20], Train Loss: 2.9929, Validation Loss: 3.9743
+Epoch [19/20], Train Loss: 2.9684, Validation Loss: 3.9527
+Epoch [20/20], Train Loss: 2.9630, Validation Loss: 4.0867

@@ -162,18 +162,19 @@ def main(distribution, n, p):
                         "p": p
                     }
                     val_loss = validate(model, device, val_loader, criterion, val_input_params)
-                    val_losses.append((val_input_params, val_loss))
+                    val_losses.append(val_loss)
 
-        epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Losses: {val_losses}\n"
+        final_val_loss = numpy.mean(val_losses)
+        epoch_output_string = f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss:.4f}, Validation Loss: {final_val_loss:.4f}\n"
         with open("output/" + output_file + ".txt", 'a+') as f:
             f.write(epoch_output_string)
 
         print(epoch_output_string)
 
-        if numpy.mean(val_losses) < best_val_loss:
+        if final_val_loss < best_val_loss:
             best_val_loss = val_loss
-            torch.save(model.state_dict(), f"models/{output_file}.pth")
-            print(f"Validation loss improved. Saving model at epoch {epoch + 1}")
+            #torch.save(model.state_dict(), f"models/{output_file}.pth")
+            #print(f"Validation loss improved. Saving model at epoch {epoch + 1}")
 
     print("Training complete!")
 
@@ -182,4 +183,7 @@ if __name__ == '__main__':
     for distribution in SamplingOption:
         for n in [5, 10, 15, 20]:
             for p in [2, 3, 4]:
-                main(distribution, n, p)
+                if distribution == SamplingOption.GAUSSIAN or (distribution == SamplingOption.POISSON and (n == 5 or (n == 10 and p == 2))):
+                    continue
+                else:
+                    main(distribution, n, p)
