@@ -77,7 +77,7 @@ def test():
 
             img_lab = rgb2lab(img)
 
-            user_input = {"distribution": SamplingOption.GAUSSIAN, "n": random.choice([3, 5, 8, 10, 15, 20]), "p": 3}
+            user_input = {"distribution": random.choice([SamplingOption.GAUSSIAN, SamplingOption.POISSON, SamplingOption.RANDOM]), "n": random.choice([3, 5, 8, 10, 15, 20]), "p": 3}
 
             
             input_ab, input_mask = simulate_user_inputs(img_lab[:, :, 1:], user_input)
