@@ -29,6 +29,7 @@ def _init_grid_mask(self, amount, frame_size):
 
     x = np.linspace(0, frame_size - 1, amount_sqrt).astype(int)
     y = np.linspace(0, frame_size - 1, amount_sqrt).astype(int)
+
     xs, ys = np.meshgrid(x, y)
     return np.column_stack((xs.flatten(), ys.flatten()))
 

@@ -1,10 +1,8 @@
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 from skimage import color
-from sklearn.cluster import KMeans
-import os
 from scipy.ndimage.interpolation import zoom
+from skimage.metrics import structural_similarity as ssim
 
 def lab2rgb_transpose(img_l, img_ab):
     ''' INPUTS
@@ -96,7 +94,14 @@ class ColorizeImageBase():
             return(cur_PSNR, SE_map)
         else:
             return cur_PSNR
-
+        
+    def get_result_SSIM(self, result=-1):
+        if np.array((result)).flatten()[0] == -1:
+            cur_result = self.get_img_forward()
+        else:
+            cur_result = result.copy()
+        return ssim(self.img_lab, self.output_lab, channel_axis=0, data_range=256)
+    
     def get_img_forward(self):
         # get image with point estimate
         return self.output_rgb
@@ -204,7 +209,7 @@ class ColorizeImageTorch(ColorizeImageBase):
     # ***** Net preparation *****
     def prep_net(self, gpu_id=None, path='', dist=False):
         import torch
-        import ml.model as model
+        import model
         print('path = %s' % path)
         print('Model set! dist mode? ', dist)
         self.net = model.SIGGRAPHGenerator(dist=dist)

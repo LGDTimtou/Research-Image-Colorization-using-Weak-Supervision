@@ -13,10 +13,11 @@ GRAYSCALE = "grayscale"
 AI_COLORS = "ai_colors"
 ACTUAL_COLORS = "actual_colors"
 
-MODEL = "training_2024-11-22_14_12_01.851824"
+MODEL = "best_model"
 FRAME_SIZE = 64
+UPSCALE_FRAME_SIZE = 256
 DEFAULT_P = 3
-DEFAULT_SAMPLING_AMOUNT = 20
+DEFAULT_SAMPLING_AMOUNT = 15
 
 
 OUTPUT_PATH = "data/output/"
@@ -27,8 +28,8 @@ class MainApp:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("ML Project: Mattis & Timon")
-        width = FRAME_SIZE * 3 + 200
-        height = FRAME_SIZE + 200
+        width = UPSCALE_FRAME_SIZE * 3 + 200
+        height = UPSCALE_FRAME_SIZE + 200
         
         self.root.geometry(f"{width}x{height}")
         
@@ -70,8 +71,9 @@ class MainApp:
 # Setup
 
     def load_placeholder_images(self):
-        placeholder_image = Image.open("assets/placeholder.jpg").resize((self.frame_size, self.frame_size))
-        self.placeholder_photo = ImageTk.PhotoImage(placeholder_image)
+        placeholder_image = Image.open("assets/placeholder.jpg")
+        self.placeholder_photo_grayscale = ImageTk.PhotoImage(placeholder_image.resize((self.frame_size, self.frame_size)))
+        self.placeholder_photo_color = ImageTk.PhotoImage(placeholder_image.resize((UPSCALE_FRAME_SIZE, UPSCALE_FRAME_SIZE)))
 
         loading_image = Image.open("assets/loading.gif")
         for frame in range(loading_image.n_frames):
@@ -162,8 +164,8 @@ class MainApp:
         # Scale for sampling amount
         self.sampling_amount_slider = ttk.Scale(
             sampling_amount_frame,
-            from_=5,
-            to=400,
+            from_=1,
+            to=30,
             value=DEFAULT_SAMPLING_AMOUNT,
             orient=tk.HORIZONTAL,
             state="disabled",
@@ -201,7 +203,13 @@ class MainApp:
         self.root.columnconfigure(2, weight=1)
 
     def create_container(self, name, row, column, label_text):
-        container = tk.Frame(self.root, width=self.frame_size, height=self.frame_size + 30)
+        if name in [ACTUAL_COLORS, AI_COLORS]:
+            frame_size = UPSCALE_FRAME_SIZE
+        else:
+            frame_size = self.frame_size 
+
+
+        container = tk.Frame(self.root, width=frame_size, height=frame_size + 30)
         container.grid(row=row, column=column, sticky="nsew", padx=10, pady=10)
 
         label = tk.Label(container, text=label_text, font=("TkDefaultFont", 10, "bold"))
@@ -210,9 +218,9 @@ class MainApp:
         if name == AI_COLORS:
             self.ai_colors_label = label
 
-        frame = tk.Canvas(container, width=self.frame_size, height=self.frame_size)
+        frame = tk.Canvas(container, width=frame_size, height=frame_size)
         frame.pack() 
-        frame.create_image(0, 0, image=self.placeholder_photo, anchor="nw") 
+        frame.create_image(0, 0, image=self.placeholder_photo_grayscale if name == GRAYSCALE else self.placeholder_photo_color, anchor="nw") 
 
         if name == GRAYSCALE:
             frame.bind("<Button-1>", self.on_grayscale_click)
@@ -251,7 +259,7 @@ class MainApp:
 
         if img_path:
             self.first_image_loaded = True
-            self.update_image(AI_COLORS, self.placeholder_photo, PIL_image=False)
+            self.update_image(AI_COLORS, self.placeholder_photo_color, PIL_image=False)
             self.ai_colors_label.config(text="AI Colored Image")
             self.reset_user_input()
 
@@ -285,8 +293,10 @@ class MainApp:
 
 # Image loading and processing
 
-    def update_image(self, label_name, photo, PIL_image=True):
+    def update_image(self, label_name, photo, PIL_image=True, upscale_size=(UPSCALE_FRAME_SIZE, UPSCALE_FRAME_SIZE)):
         if PIL_image:
+            if label_name != GRAYSCALE:
+                photo = photo.resize(upscale_size, Image.NEAREST)
             photo = ImageTk.PhotoImage(photo)
 
         canvas = self.canvases[label_name]
@@ -313,7 +323,7 @@ class MainApp:
             with open(self.output_path, "a") as file:
                 file.write(f"{self.selected_sampling_var.get()}; {self.get_sampling_amount()}; {self.get_p_value()}; {self.color_model.get_result_PSNR()}\n")
         
-        self.ai_colors_label.config(text=f"AI Colored Image, PSNR: {self.color_model.get_result_PSNR()}")
+        self.ai_colors_label.config(text=f"AI Colored Image, PSNR: {self.color_model.get_result_PSNR()}\nAI Colored Image, SSIM: {self.color_model.get_result_SSIM()}")
 
         self.root.after_cancel(self.loading_animation_id)
         self.update_image(AI_COLORS, ai_colored_pil)
