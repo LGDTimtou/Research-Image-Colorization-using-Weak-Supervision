@@ -130,6 +130,14 @@ def main(distribution, n, p):
     # Training
     train_dataset = datasets.CIFAR10(root=DATA_FOLDER, train=True, download=True, transform=transform)
 
+    dataset_size = len(train_dataset)
+    subset_size = dataset_size // 2
+    indices = list(range(dataset_size))
+    random.shuffle(indices)
+    subset_indices = indices[:subset_size]
+
+    train_dataset = Subset(train_dataset, subset_indices)
+
     train_size = int(0.8 * len(train_dataset))
     val_size = len(train_dataset) - train_size
     train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size])
@@ -170,4 +178,5 @@ def main(distribution, n, p):
 
     
 if __name__ == '__main__':
-    main(SamplingOption.RANDOM, 15, 3)
+    main(SamplingOption.GAUSSIAN, 15, 3)
+    main(SamplingOption.POISSON, 15, 3)

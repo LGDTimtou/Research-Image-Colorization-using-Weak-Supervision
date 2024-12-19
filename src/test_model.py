@@ -22,7 +22,7 @@ dataset = CIFAR10(root="./data", train=False, download=True, transform=transform
 dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
 
 # Load pre-trained models
-model_paths = ["models/best_model.pth"]
+model_paths = ["models/model_GAUSSIAN.pth", "models/model_POISSON.pth", "models/model_RANDOM.pth"]
 models = []
 for path in model_paths:
     model = SIGGRAPHGenerator()
@@ -67,6 +67,7 @@ def simulate_user_inputs(ab_image, user_input):
 def test():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     for i, model in enumerate(models):
+        model.to(device)
         model_results = []
         total_ssim, total_psnr = 0, 0
         for j, (inputs, _) in tqdm(enumerate(dataloader)):
@@ -89,14 +90,23 @@ def test():
             output_ab = model(img_l - 50, input_ab, input_mask)
 
             ssim_value, psnr_value = calculate_metrics(img_l, output_ab, img_ab)
-            model_results.append({"idx": j, "input": user_input, "ssim": ssim_value, "psnr": psnr_value})
+            model_results.append({
+                "image_idx": j,
+                "ssim": ssim_value,
+                "psnr": psnr_value,
+                "user_input": {
+                    "distribution": str(user_input["distribution"]),  # Convert SamplingOption to string
+                    "n": user_input["n"],
+                    "p": user_input["p"],
+                },
+            })
             total_ssim += ssim_value
             total_psnr += psnr_value
 
 
         avg_ssim = total_ssim / len(dataloader)
         avg_psnr = total_psnr / len(dataloader)
-        with open(f"results_model_{i}.json", "w") as f:
+        with open(f"output/results_model_{i}.json", "w") as f:
             json.dump({"results": model_results, "avg_ssim": avg_ssim, "avg_psnr": avg_psnr}, f, indent=2)
 
 
